@@ -1,1 +1,10 @@
-<p>activity-todos works!</p>
+<div class = "container">
+    <h1>Daily To Do's - {{data[0].date}} </h1>
+        <div class="todo" *ngFor="let x of data">
+            <input 
+            type="checkbox" 
+            >
+            <h2>{{ x.activity.title }}</h2>
+        </div>
+</div>
+
