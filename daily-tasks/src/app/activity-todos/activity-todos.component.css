@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px grey;
+    border-radius: 1rem;
+    width: 30vw;
+    padding: 1rem;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.todo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  accent-color: #A9CAB0;
+  cursor: pointer;
+}
