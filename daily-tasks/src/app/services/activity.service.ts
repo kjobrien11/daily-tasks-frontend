@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { DailyActivity } from '../interfaces/DailyActivity';
+import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,12 @@ export class ActivityService {
   constructor(private http: HttpClient) { }
 
   getTodaysActivities(): Observable<DailyActivity[]> {
-    return this.http.get<DailyActivity[]>(`${this.apiUrl}/today`);
+   return this.http.get<DailyActivity[]>(`${this.apiUrl}/today`);
+  }
+
+  markActitivityComplete(activity: CompleteActivityRequest){
+    console.log(activity)
+    return this.http.post<DailyActivity>(`${this.apiUrl}/today/complete`, activity);
   }
 
 }
