@@ -1,10 +1,12 @@
 <div class = "container">
-    <h1>Daily To Do's - {{data[0].date}} </h1>
-        <div class="todo" *ngFor="let x of data">
+    <h1>Daily To Do's - {{dailyTasks[0].date}} </h1>
+        <div class="todo" *ngFor="let item of dailyTasks">
             <input 
             type="checkbox" 
+            [checked]="item.isComplete"
+            (change)="updateItemCompleted(item)"
             >
-            <h2>{{ x.activity.title }}</h2>
+            <h2>{{ item.activity.title }}</h2>
         </div>
 </div>
 

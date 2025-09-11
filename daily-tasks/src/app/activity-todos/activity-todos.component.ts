@@ -9,8 +9,12 @@ import { Component } from '@angular/core';
 })
 export class ActivityTodosComponent {
 
+  //TODO implement an interface
+  updateItemCompleted(item:any){
+    console.log(item, " updated")
+  }
 
-  data = [
+  dailyTasks = [
     {
       "id": 1,
       "date": "2025-09-10",
@@ -34,7 +38,7 @@ export class ActivityTodosComponent {
     {
       "id": 3,
       "date": "2025-09-10",
-      "isComplete": false,
+      "isComplete": true,
       "activity": {
         "id": 3,
         "title": "Activity 3",
@@ -54,7 +58,7 @@ export class ActivityTodosComponent {
     {
       "id": 5,
       "date": "2025-09-10",
-      "isComplete": false,
+      "isComplete": true,
       "activity": {
         "id": 5,
         "title": "Activity 5",
