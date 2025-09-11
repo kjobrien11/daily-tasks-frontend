@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ProgressBarComponent {
 
+  //TODO implement an interface
+  progress = {
+    "total": 5,
+    "completed": 2,
+    "percentage": 40.0
+  }
+
 }

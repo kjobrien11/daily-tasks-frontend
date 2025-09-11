@@ -1,1 +1,6 @@
-<p>progress-bar works!</p>
+<div class="progress-container">
+  <div class="progress-bar">
+    <div class="progress-fill" [style.width.%]="progress.percentage"></div>
+  </div>
+  <p>{{progress.percentage}}%</p>
+</div>
