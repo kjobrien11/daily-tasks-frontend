@@ -24,18 +24,25 @@ export class ActivityTodosComponent {
   }
 
   updateItemCompleted(item: DailyActivity) {
+  
+
     const activity: CompleteActivityRequest = {
       date: item.date,
       activityId: item.activity.id
     };
-    this.activityService.markActitivityComplete(activity)
-    .subscribe({
+
+
+
+    const call$ = item.isComplete
+      ? this.activityService.markActitivityUnComplete(activity)
+      : this.activityService.markActitivityComplete(activity);
+
+    call$.subscribe({
       next: (response) => {
         console.log('Activity updated:', response);
+        this.loadActivities();
       },
-      error: (err) => {
-        console.error('Error updating activity:', err);
-      }
+      error: (err) => console.error('Error updating activity:', err)
     });
   }
 

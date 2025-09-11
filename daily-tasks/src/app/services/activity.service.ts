@@ -22,4 +22,9 @@ export class ActivityService {
     return this.http.post<DailyActivity>(`${this.apiUrl}/today/complete`, activity);
   }
 
+  markActitivityUnComplete(activity: CompleteActivityRequest){
+    console.log(activity)
+    return this.http.post<DailyActivity>(`${this.apiUrl}/today/uncomplete`, activity);
+  }
+
 }
