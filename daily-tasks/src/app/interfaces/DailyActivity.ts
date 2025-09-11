@@ -1,6 +1,6 @@
 import { Activity } from "./Activity";
 
-export interface DailyTask {
+export interface DailyActivity {
   id: number;
   date: string;
   isComplete: boolean;
