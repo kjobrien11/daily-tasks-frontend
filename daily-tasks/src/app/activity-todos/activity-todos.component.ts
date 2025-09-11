@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { DailyTask } from '../interfaces/DailyActivity';
 
 @Component({
   selector: 'app-activity-todos',
@@ -10,11 +11,11 @@ import { Component } from '@angular/core';
 export class ActivityTodosComponent {
 
   //TODO implement an interface
-  updateItemCompleted(item:any){
+  updateItemCompleted(item:DailyTask){
     console.log(item, " updated")
   }
 
-  dailyTasks = [
+  dailyTasks: DailyTask[] = [
     {
       "id": 1,
       "date": "2025-09-10",
