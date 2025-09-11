@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { DailyTask } from '../interfaces/DailyActivity';
+import { DailyActivity } from '../interfaces/DailyActivity';
+import { ActivityService } from '../services/activity.service';
+import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
 
 @Component({
   selector: 'app-activity-todos',
@@ -10,62 +12,41 @@ import { DailyTask } from '../interfaces/DailyActivity';
 })
 export class ActivityTodosComponent {
 
-  updateItemCompleted(item:DailyTask){
-    console.log(item, " updated")
+  constructor(private activityService: ActivityService) { }
+  activities: DailyActivity[] = [];
+
+  ngOnInit(): void {
+    this.loadActivities();
   }
 
-  dailyTasks: DailyTask[] = [
-    {
-      "id": 1,
-      "date": "2025-09-10",
-      "isComplete": false,
-      "activity": {
-        "id": 1,
-        "title": "Activity 1",
-        "description": "Description for activity 1."
-      }
-    },
-    {
-      "id": 2,
-      "date": "2025-09-10",
-      "isComplete": false,
-      "activity": {
-        "id": 2,
-        "title": "Activity 2",
-        "description": "Description for activity 2."
-      }
-    },
-    {
-      "id": 3,
-      "date": "2025-09-10",
-      "isComplete": true,
-      "activity": {
-        "id": 3,
-        "title": "Activity 3",
-        "description": "Description for activity 3."
-      }
-    },
-    {
-      "id": 4,
-      "date": "2025-09-10",
-      "isComplete": false,
-      "activity": {
-        "id": 4,
-        "title": "Activity 4",
-        "description": "Description for activity 4."
-      }
-    },
-    {
-      "id": 5,
-      "date": "2025-09-10",
-      "isComplete": true,
-      "activity": {
-        "id": 5,
-        "title": "Activity 5",
-        "description": "Description for activity 5."
-      }
-    }
-  ]
+  loadActivities(): void {
+    this.activityService.getTodaysActivities().subscribe(data => this.activities = data);
+  }
+
+  updateItemCompleted(item: DailyActivity) {
+  
+
+    const activity: CompleteActivityRequest = {
+      date: item.date,
+      activityId: item.activity.id
+    };
+
+
+
+    const call$ = item.isComplete
+      ? this.activityService.markActitivityUnComplete(activity)
+      : this.activityService.markActitivityComplete(activity);
+
+    call$.subscribe({
+      next: (response) => {
+        console.log('Activity updated:', response);
+        this.loadActivities();
+      },
+      error: (err) => console.error('Error updating activity:', err)
+    });
+  }
+
+
 
 
 }
