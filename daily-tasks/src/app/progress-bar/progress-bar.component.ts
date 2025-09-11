@@ -9,7 +9,6 @@ import { Progress } from '../interfaces/Progress';
 })
 export class ProgressBarComponent {
 
-  //TODO implement an interface
   progress: Progress = {
     "total": 5,
     "completed": 2,

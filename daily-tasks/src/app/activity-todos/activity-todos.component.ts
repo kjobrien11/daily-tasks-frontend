@@ -10,7 +10,6 @@ import { DailyTask } from '../interfaces/DailyActivity';
 })
 export class ActivityTodosComponent {
 
-  //TODO implement an interface
   updateItemCompleted(item:DailyTask){
     console.log(item, " updated")
   }
