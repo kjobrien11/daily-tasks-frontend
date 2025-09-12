@@ -14,8 +14,10 @@ export class AppComponent {
   title = 'daily-tasks';
 
   @ViewChild('progressBar') progressBar!: ProgressBarComponent;
+  @ViewChild('history') history!: HistoryComponent;
 
   refreshProgress() {
     this.progressBar.loadProgressStatus();
+    this.history.loadStreak();
   }
 }
