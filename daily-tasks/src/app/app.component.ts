@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ActivityTodosComponent } from './activity-todos/activity-todos.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
@@ -11,4 +11,10 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 })
 export class AppComponent {
   title = 'daily-tasks';
+
+  @ViewChild('progressBar') progressBar!: ProgressBarComponent;
+
+  refreshProgress() {
+    this.progressBar.loadProgressStatus();
+  }
 }

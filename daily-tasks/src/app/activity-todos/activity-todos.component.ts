@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { DailyActivity } from '../interfaces/DailyActivity';
 import { ActivityService } from '../services/activity.service';
 import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
@@ -11,6 +11,7 @@ import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
   styleUrl: './activity-todos.component.css'
 })
 export class ActivityTodosComponent {
+  @Output() activityUpdated = new EventEmitter<void>();
 
   constructor(private activityService: ActivityService) { }
   activities: DailyActivity[] = [];
@@ -24,14 +25,10 @@ export class ActivityTodosComponent {
   }
 
   updateItemCompleted(item: DailyActivity) {
-  
-
     const activity: CompleteActivityRequest = {
       date: item.date,
       activityId: item.activity.id
     };
-
-
 
     const call$ = item.isComplete
       ? this.activityService.markActitivityUnComplete(activity)
@@ -41,12 +38,9 @@ export class ActivityTodosComponent {
       next: (response) => {
         console.log('Activity updated:', response);
         this.loadActivities();
+        this.activityUpdated.emit();
       },
       error: (err) => console.error('Error updating activity:', err)
     });
   }
-
-
-
-
 }
