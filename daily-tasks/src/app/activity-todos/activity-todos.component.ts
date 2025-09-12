@@ -24,14 +24,10 @@ export class ActivityTodosComponent {
   }
 
   updateItemCompleted(item: DailyActivity) {
-  
-
     const activity: CompleteActivityRequest = {
       date: item.date,
       activityId: item.activity.id
     };
-
-
 
     const call$ = item.isComplete
       ? this.activityService.markActitivityUnComplete(activity)
@@ -45,8 +41,4 @@ export class ActivityTodosComponent {
       error: (err) => console.error('Error updating activity:', err)
     });
   }
-
-
-
-
 }

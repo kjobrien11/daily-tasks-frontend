@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Progress } from '../interfaces/Progress';
+import { ActivityService } from '../services/activity.service';
 
 @Component({
   selector: 'app-progress-bar',
@@ -7,12 +8,18 @@ import { Progress } from '../interfaces/Progress';
   templateUrl: './progress-bar.component.html',
   styleUrl: './progress-bar.component.css'
 })
-export class ProgressBarComponent {
+export class ProgressBarComponent implements OnInit{
 
-  progress: Progress = {
-    "total": 5,
-    "completed": 2,
-    "percentage": 40.0
+  progress!: Progress;
+
+  constructor(private activityService: ActivityService) { }
+
+  ngOnInit(): void {
+    this.loadProgressStatus();
+  }
+
+  loadProgressStatus(): void{
+    this.activityService.getTodaysProgress().subscribe(data => this.progress = data);
   }
 
 }
