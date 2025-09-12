@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivityService } from '../services/activity.service';
 
 @Component({
   selector: 'app-history',
@@ -6,7 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './history.component.html',
   styleUrl: './history.component.css'
 })
-export class HistoryComponent {
+export class HistoryComponent implements OnInit {
+
+  streak: number = 0;
+
+  constructor(private activityService: ActivityService) { }
+
+  ngOnInit(): void {
+    this.loadStreak();
+  }
+
+  loadStreak(): void{
+    this.activityService.getStreak().subscribe(data => this.streak = data);
+  }
 
   showHistory():void{
     console.log("Click")
