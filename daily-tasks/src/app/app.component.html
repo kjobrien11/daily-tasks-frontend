@@ -1,2 +1,2 @@
-<app-progress-bar></app-progress-bar>
-<app-activity-todos></app-activity-todos>
+<app-progress-bar #progressBar></app-progress-bar>
+<app-activity-todos (activityUpdated)="refreshProgress()"></app-activity-todos>
