@@ -2,12 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ActivityTodosComponent } from './activity-todos/activity-todos.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { HistoryComponent } from './history/history.component';
+import { ActionButtonComponent } from './history/action-buttons.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
-  imports: [ActivityTodosComponent, ProgressBarComponent, HistoryComponent],
+  imports: [ActivityTodosComponent, ProgressBarComponent, ActionButtonComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,9 +17,7 @@ export class AppComponent {
   constructor(private popUp: MatDialog) {}
 
   @ViewChild('progressBar') progressBar!: ProgressBarComponent;
-  @ViewChild('history') history!: HistoryComponent;
-  
-
+  @ViewChild('history') history!: ActionButtonComponent;
   
 
   refreshProgress() {

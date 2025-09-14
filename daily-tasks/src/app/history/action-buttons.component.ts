@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../services/activity.service';
 
 @Component({
-  selector: 'app-history',
+  selector: 'app-action-buttons',
   imports: [],
-  templateUrl: './history.component.html',
-  styleUrl: './history.component.css'
+  templateUrl: './action-buttons.component.html',
+  styleUrl: './action-buttons.component.css'
 })
-export class HistoryComponent implements OnInit {
+export class ActionButtonComponent implements OnInit {
 
   streak: number = 0;
 
