@@ -32,4 +32,8 @@ export class ActivityService {
     return this.http.get<Progress>(`${this.apiUrl}/today/progress`);
   }
 
+  getStreak(): Observable<number>{
+    return this.http.get<number>(`${this.apiUrl}/streak`);
+  }
+
 }
