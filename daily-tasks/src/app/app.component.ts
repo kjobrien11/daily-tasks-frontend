@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { ActivityTodosComponent } from './activity-todos/activity-todos.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { HistoryComponent } from './history/history.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,13 @@ import { HistoryComponent } from './history/history.component';
 export class AppComponent {
   title = 'daily-tasks';
 
+  constructor(private popUp: MatDialog) {}
+
   @ViewChild('progressBar') progressBar!: ProgressBarComponent;
   @ViewChild('history') history!: HistoryComponent;
+  
+
+  
 
   refreshProgress() {
     this.progressBar.loadProgressStatus();
