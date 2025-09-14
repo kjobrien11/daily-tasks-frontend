@@ -1,24 +1,25 @@
 .progress-container {
-  display: flex;
-  align-items: center;
-  width: 32vw;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    width: 32vw;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 .progress-bar {
-  flex-grow: 1;
-  height: 5vh;
-  border: 1px solid grey;
-  border-radius: 1rem;
-  box-sizing: border-box;
-  background-color: #f5f4f4;
-  overflow: hidden;
+    flex-grow: 1;
+    height: 5vh;
+    border: 1px solid grey;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    background-color: #f5f4f4;
+    overflow: hidden;
 }
 
 .progress-fill {
-  height: 100%;
-  background-color: #A9CAB0;
-  width: 0%;
-  border-radius: 1rem 0 0 1rem;
-  transition: width 0.3s ease;
+    height: 100%;
+    background-color: #A9CAB0;
+    width: 0%;
+    border-radius: 1rem 0 0 1rem;
+    transition: width 0.3s ease;
 }

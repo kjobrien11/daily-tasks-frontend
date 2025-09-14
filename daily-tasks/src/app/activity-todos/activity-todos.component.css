@@ -13,6 +13,10 @@ h1 {
     justify-content: center;
 }
 
+h2 {
+    font-weight: normal;
+}
+
 .todo {
     display: flex;
     flex-direction: row;
@@ -21,9 +25,14 @@ h1 {
 }
 
 input[type="checkbox"] {
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  accent-color: #A9CAB0;
-  cursor: pointer;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    accent-color: #A9CAB0;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #777;
 }

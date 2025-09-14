@@ -7,7 +7,7 @@
             [checked]="item.isComplete"
             (change)="updateItemCompleted(item)"
             >
-            <h2>{{ item.activity.title }}</h2>
+            <h2 [ngClass]="{ 'completed': item.isComplete }">{{ item.activity.title }}</h2>
         </div>
 </div>
 

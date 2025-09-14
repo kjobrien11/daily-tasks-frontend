@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ActivityTodosComponent } from './activity-todos/activity-todos.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
-import { ActionButtonComponent } from './history/action-buttons.component';
+import { ActionButtonComponent } from './action-buttons/action-buttons.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
