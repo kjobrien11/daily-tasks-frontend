@@ -1,13 +1,12 @@
 <div class = "container">
     <h1>Daily To Do's - {{ activities[0].date.substring(5,7) }}/{{ activities[0].date.substring(8) }}/{{ activities[0].date.substring(0,4) }}</h1>
-    
-        <div class="todo" *ngFor="let item of activities">
-            <input 
-            type="checkbox" 
-            [checked]="item.isComplete"
-            (change)="updateItemCompleted(item)"
-            >
-            <h2 [ngClass]="{ 'completed': item.isComplete }">{{ item.activity.title }}</h2>
-        </div>
+    <div class="todo" *ngFor="let item of activities">
+        <input 
+        type="checkbox" 
+        [checked]="item.isComplete"
+        (change)="updateItemCompleted(item)"
+        >
+        <h2 [ngClass]="{ 'completed': item.isComplete }">{{ item.activity.title }}</h2>
+    </div>
 </div>
 
