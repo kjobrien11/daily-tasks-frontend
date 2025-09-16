@@ -1,6 +1,7 @@
-.history-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 1rem;
+.history-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1rem;
+  padding: 1rem;
 }
