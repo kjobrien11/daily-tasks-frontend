@@ -1,1 +1,6 @@
-<p>history-popup works!</p>
+<div class="history-container">
+  <app-day-status
+    *ngFor="let day of rollingData"
+    [data]="day">
+  </app-day-status>
+</div>

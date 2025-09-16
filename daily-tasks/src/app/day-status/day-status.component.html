@@ -1,1 +1,5 @@
-<p>day-status works!</p>
+<div class = "day-status-container" [style.background-color]="getBackgroundColor(data.percentage)">
+    <h2>{{data.dayOfWeek}}</h2>
+    <h3>{{data.date}}</h3>
+    <h1>{{data.percentage}}%</h1>
+</div>

@@ -3,10 +3,12 @@ import { ActivityService } from '../services/activity.service';
 import { DailyActivity } from '../interfaces/DailyActivity';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { MatDialog } from '@angular/material/dialog';
+import { DayStatusComponent } from '../day-status/day-status.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-history-popup',
-  imports: [],
+  imports: [DayStatusComponent, NgFor],
   templateUrl: './history-popup.component.html',
   styleUrl: './history-popup.component.css'
 })
