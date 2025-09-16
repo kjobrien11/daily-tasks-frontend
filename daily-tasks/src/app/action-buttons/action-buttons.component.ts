@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../services/activity.service';
+import { MatDialog } from '@angular/material/dialog';
+import { HistoryPopupComponent } from '../history-popup/history-popup.component';
 
 @Component({
   selector: 'app-action-buttons',
@@ -11,7 +13,7 @@ export class ActionButtonComponent implements OnInit {
 
   streak: number = 0;
 
-  constructor(private activityService: ActivityService) { }
+  constructor(private activityService: ActivityService, private popUp: MatDialog) { }
 
   ngOnInit(): void {
     this.loadStreak();
@@ -24,4 +26,14 @@ export class ActionButtonComponent implements OnInit {
   showHistory():void{
     console.log("Click")
   }
+
+  openDialog() {
+    this.popUp.open(HistoryPopupComponent, {
+      width: '90%',
+      height: '90%',
+      data: { message: 'Hello from the popup!' }
+    });
+  }
+
+
 }

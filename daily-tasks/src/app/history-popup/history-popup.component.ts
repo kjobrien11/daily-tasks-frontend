@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../services/activity.service';
 import { DailyActivity } from '../interfaces/DailyActivity';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-history-popup',
@@ -11,7 +12,7 @@ import { WeeklyHistory } from '../interfaces/WeekHistory';
 })
 export class HistoryPopupComponent implements OnInit{
 
-  rollingData : WeeklyHistory[] =[];
+  rollingData! : WeeklyHistory[];
 
   constructor(private activityService: ActivityService) { }
 
@@ -19,6 +20,7 @@ export class HistoryPopupComponent implements OnInit{
     this.loadRollingData();
     console.log(this.rollingData);
   }
+
 
   loadRollingData(){
     this.activityService.getWeekHistory().subscribe(data => this.rollingData = data);

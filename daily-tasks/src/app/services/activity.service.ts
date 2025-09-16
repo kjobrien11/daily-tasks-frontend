@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { DailyActivity } from '../interfaces/DailyActivity';
 import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
 import { Progress } from '../interfaces/Progress';
+import { WeeklyHistory } from '../interfaces/WeekHistory';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class ActivityService {
   }
 
   getWeekHistory(): Observable<WeeklyHistory[]> {
-   return this.http.get<DailyActivity[]>(`${this.apiUrl}/last-eight-days`);
+   return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-eight-days`);
   }
 
   markActitivityComplete(activity: CompleteActivityRequest) : Observable<DailyActivity>{
