@@ -18,13 +18,15 @@ export class ActivityService {
    return this.http.get<DailyActivity[]>(`${this.apiUrl}/today`);
   }
 
+  getWeekHistory(): Observable<WeeklyHistory[]> {
+   return this.http.get<DailyActivity[]>(`${this.apiUrl}/last-eight-days`);
+  }
+
   markActitivityComplete(activity: CompleteActivityRequest) : Observable<DailyActivity>{
-    console.log(activity)
     return this.http.post<DailyActivity>(`${this.apiUrl}/today/complete`, activity);
   }
 
   markActitivityUnComplete(activity: CompleteActivityRequest): Observable<DailyActivity>{
-    console.log(activity)
     return this.http.post<DailyActivity>(`${this.apiUrl}/today/uncomplete`, activity);
   }
 
