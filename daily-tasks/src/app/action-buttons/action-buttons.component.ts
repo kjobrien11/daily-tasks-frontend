@@ -29,9 +29,9 @@ export class ActionButtonComponent implements OnInit {
 
   openDialog() {
     this.popUp.open(HistoryPopupComponent, {
-      width: '90vw',
+      width: '95vw',
       height: '90vh',
-      maxWidth: '70vw',
+      maxWidth: '100vw',
       data: { message: 'Hello from the popup!' }
     });
   }

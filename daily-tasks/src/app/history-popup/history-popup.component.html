@@ -1,6 +1,7 @@
-<div class="history-container">
-  <app-day-status
-    *ngFor="let day of rollingData"
-    [data]="day">
-  </app-day-status>
+<div class="center">
+    <h1>Last 7 Day Stats</h1>
+    <div class="history-container">
+        <app-day-status *ngFor="let day of rollingData" [data]="day">
+        </app-day-status>
+    </div>
 </div>
