@@ -8,4 +8,9 @@
     background-color: #f5f4f4;
     height: 23vh;
     width:  23vh;
+    gap: 0rem;
+}
+
+ h3, h4{
+    margin: 0.25rem;
 }
