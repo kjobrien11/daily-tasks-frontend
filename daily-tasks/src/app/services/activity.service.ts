@@ -20,7 +20,7 @@ export class ActivityService {
   }
 
   getWeekHistory(): Observable<WeeklyHistory[]> {
-   return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-eight-days`);
+   return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-seven-days`);
   }
 
   markActitivityComplete(activity: CompleteActivityRequest) : Observable<DailyActivity>{
