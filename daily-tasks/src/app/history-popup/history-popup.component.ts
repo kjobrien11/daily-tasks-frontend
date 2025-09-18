@@ -5,10 +5,11 @@ import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { MatDialog } from '@angular/material/dialog';
 import { DayStatusComponent } from '../day-status/day-status.component';
 import { NgFor } from '@angular/common';
+import { ActivityBreakdownComponent } from '../activity-breakdown/activity-breakdown.component';
 
 @Component({
   selector: 'app-history-popup',
-  imports: [DayStatusComponent, NgFor],
+  imports: [DayStatusComponent, NgFor, ActivityBreakdownComponent],
   templateUrl: './history-popup.component.html',
   styleUrl: './history-popup.component.css'
 })
