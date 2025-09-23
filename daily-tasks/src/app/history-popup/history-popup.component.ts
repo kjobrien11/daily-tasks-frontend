@@ -26,11 +26,8 @@ export class HistoryPopupComponent implements OnInit{
     this.loadRollingData();
   }
 
-
   loadRollingData(){
     this.activityService.getWeekHistory().subscribe(data => this.rollingData = data);
     this.activityService.getWeekBreakdown().subscribe(data => this.rollingDataBreakdown = data);
-    
   }
-
 }
