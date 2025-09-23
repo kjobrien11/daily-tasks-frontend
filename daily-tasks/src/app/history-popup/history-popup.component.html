@@ -11,13 +11,14 @@
                 <tr>
                     <th>Activity</th>
                     <th>Percentage</th>
-                    <th *ngFor="let day of data.completion; let i = index">
+                    <th *ngFor="let day of data[0].completion; let i = index">
                         Day {{ i + 1 }}
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr app-activity-breakdown [data]="data"></tr>
+                <tr app-activity-breakdown *ngFor="let activity of data" [data]="activity"></tr>
+
             </tbody>
         </table>
     </div>

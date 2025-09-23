@@ -18,25 +18,25 @@ export class HistoryPopupComponent implements OnInit{
 
   rollingData! : WeeklyHistory[];
 
-    data: ActivityBreakdown = 
-  {
-    "activityName": "Career Work 2 Minutes",
-    "percentage": 100,
-    "completion": [true, true, true, true, true, true, true]
-  };
+  //   data: ActivityBreakdown = 
+  // {
+  //   "activityName": "Career Work 2 Minutes",
+  //   "percentage": 100,
+  //   "completion": [true, true, true, true, true, true, true]
+  // };
 
-//   activities: ActivityBreakdown[] = [
-//   {
-//     activityName: "Career Work 2 Minutes",
-//     percentage: 100,
-//     completion: [true, true, true, true, true, true, true]
-//   },
-//   {
-//     activityName: "Running",
-//     percentage: 85,
-//     completion: [true, false, true, true, false, true, true]
-//   }
-// ];
+  data: ActivityBreakdown[] = [
+  {
+    activityName: "Career Work 2 Minutes",
+    percentage: 100,
+    completion: [true, true, true, true, true, true, true]
+  },
+  {
+    activityName: "Running",
+    percentage: 85,
+    completion: [true, false, true, true, false, true, true]
+  }
+];
 
   constructor(private activityService: ActivityService) { }
 
