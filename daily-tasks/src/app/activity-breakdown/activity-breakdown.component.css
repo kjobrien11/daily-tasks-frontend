@@ -6,6 +6,8 @@
     width: 80vw;
 }
 
-table{
-    padding: 1rem;
+td{
+    padding: 1rem 3rem;
+    border: solid;
+    text-align: center;
 }

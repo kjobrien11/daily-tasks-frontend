@@ -7,6 +7,7 @@ import { DayStatusComponent } from '../day-status/day-status.component';
 import { NgFor } from '@angular/common';
 import { ActivityBreakdownComponent } from '../activity-breakdown/activity-breakdown.component';
 import { ActivityBreakdown } from '../interfaces/ActivityBreakdown';
+import { Breakdown } from '../interfaces/Breakdown';
 
 @Component({
   selector: 'app-history-popup',
@@ -17,37 +18,19 @@ import { ActivityBreakdown } from '../interfaces/ActivityBreakdown';
 export class HistoryPopupComponent implements OnInit{
 
   rollingData! : WeeklyHistory[];
-
-  //   data: ActivityBreakdown = 
-  // {
-  //   "activityName": "Career Work 2 Minutes",
-  //   "percentage": 100,
-  //   "completion": [true, true, true, true, true, true, true]
-  // };
-
-  data: ActivityBreakdown[] = [
-  {
-    activityName: "Career Work 2 Minutes",
-    percentage: 100,
-    completion: [true, true, true, true, true, true, true]
-  },
-  {
-    activityName: "Running",
-    percentage: 85,
-    completion: [true, false, true, true, false, true, true]
-  }
-];
+  rollingDataBreakdown!: Breakdown[];
 
   constructor(private activityService: ActivityService) { }
 
   ngOnInit(): void {
     this.loadRollingData();
-    console.log(this.rollingData);
   }
 
 
   loadRollingData(){
     this.activityService.getWeekHistory().subscribe(data => this.rollingData = data);
+    this.activityService.getWeekBreakdown().subscribe(data => this.rollingDataBreakdown = data);
+    
   }
 
 }

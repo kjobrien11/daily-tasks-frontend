@@ -5,6 +5,7 @@ import { DailyActivity } from '../interfaces/DailyActivity';
 import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
 import { Progress } from '../interfaces/Progress';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
+import { Breakdown } from '../interfaces/Breakdown';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ export class ActivityService {
 
   getWeekHistory(): Observable<WeeklyHistory[]> {
    return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-seven-days`);
+  }
+
+  getWeekBreakdown(): Observable<Breakdown[]> {
+   return this.http.get<Breakdown[]>(`${this.apiUrl}/last-seven-days-breakdown`);
   }
 
   markActitivityComplete(activity: CompleteActivityRequest) : Observable<DailyActivity>{

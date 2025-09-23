@@ -5,9 +5,22 @@
     gap: 1rem;
     padding: 1rem;
 }
-.center{
+
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+th {
+    padding: 1rem;
+    border: solid;
+    background-color: #e4e4e4;
+}
+
+
+table {
+    border: solid;
+    border-collapse: collapse;
 }

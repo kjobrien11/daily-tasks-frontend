@@ -1,5 +1,5 @@
 <td>{{ data.activityName }}</td>
 <td>{{ data.percentage }}%</td>
 <td *ngFor="let day of data.completion">
-    {{ day ? "Completed" : "Uncompleted" }}
+    {{ day ? "✅" : "❌" }}
 </td>

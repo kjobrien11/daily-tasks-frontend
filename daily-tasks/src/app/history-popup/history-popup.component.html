@@ -6,19 +6,18 @@
     </div>
 
     <div class="container">
-        <table border="1">
+        <table >
             <thead>
                 <tr>
                     <th>Activity</th>
                     <th>Percentage</th>
-                    <th *ngFor="let day of data[0].completion; let i = index">
-                        Day {{ i + 1 }}
+                    <th *ngFor="let day of rollingData; let i = index">
+                       {{day.dayOfWeek.charAt(0).toUpperCase()}}{{day.dayOfWeek.substring(1).toLowerCase()}}
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr app-activity-breakdown *ngFor="let activity of data" [data]="activity"></tr>
-
+                <tr app-activity-breakdown *ngFor="let activity of rollingDataBreakdown" [data]="activity"></tr>
             </tbody>
         </table>
     </div>
