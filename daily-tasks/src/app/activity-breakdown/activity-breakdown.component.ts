@@ -1,26 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivityBreakdown } from '../interfaces/ActivityBreakdown';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-activity-breakdown',
-  imports: [],
+  selector: 'tr[app-activity-breakdown]',
+  imports: [NgFor],
   templateUrl: './activity-breakdown.component.html',
   styleUrl: './activity-breakdown.component.css'
 })
 export class ActivityBreakdownComponent {
 
-
-  data : ActivityBreakdown = {
-        "activityName": "Career Work 2 Minutes",
-        "percentage": 100,
-        "completion": [
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true
-        ]
-    }
+@Input() data!: ActivityBreakdown;
 }

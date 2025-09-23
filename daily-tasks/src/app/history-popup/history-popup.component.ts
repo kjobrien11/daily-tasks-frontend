@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DayStatusComponent } from '../day-status/day-status.component';
 import { NgFor } from '@angular/common';
 import { ActivityBreakdownComponent } from '../activity-breakdown/activity-breakdown.component';
+import { ActivityBreakdown } from '../interfaces/ActivityBreakdown';
 
 @Component({
   selector: 'app-history-popup',
@@ -16,6 +17,26 @@ import { ActivityBreakdownComponent } from '../activity-breakdown/activity-break
 export class HistoryPopupComponent implements OnInit{
 
   rollingData! : WeeklyHistory[];
+
+    data: ActivityBreakdown = 
+  {
+    "activityName": "Career Work 2 Minutes",
+    "percentage": 100,
+    "completion": [true, true, true, true, true, true, true]
+  };
+
+//   activities: ActivityBreakdown[] = [
+//   {
+//     activityName: "Career Work 2 Minutes",
+//     percentage: 100,
+//     completion: [true, true, true, true, true, true, true]
+//   },
+//   {
+//     activityName: "Running",
+//     percentage: 85,
+//     completion: [true, false, true, true, false, true, true]
+//   }
+// ];
 
   constructor(private activityService: ActivityService) { }
 
