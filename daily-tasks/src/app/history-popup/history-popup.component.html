@@ -1,0 +1,25 @@
+<div class="center">
+    <h1>Last 7 Day Stats</h1>
+    <div class="history-container">
+        <app-day-status *ngFor="let day of rollingData" [data]="day">
+        </app-day-status>
+    </div>
+
+    <div class="container">
+        <table >
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Percentage</th>
+                    <th *ngFor="let day of rollingData; let i = index">
+                       {{day.dayOfWeek.charAt(0).toUpperCase()}}{{day.dayOfWeek.substring(1).toLowerCase()}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr app-activity-breakdown *ngFor="let activity of rollingDataBreakdown" [data]="activity"></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

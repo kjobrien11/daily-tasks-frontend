@@ -14,7 +14,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent {
   title = 'daily-tasks';
 
-  constructor(private popUp: MatDialog) {}
+  constructor() {}
 
   @ViewChild('progressBar') progressBar!: ProgressBarComponent;
   @ViewChild('history') history!: ActionButtonComponent;
