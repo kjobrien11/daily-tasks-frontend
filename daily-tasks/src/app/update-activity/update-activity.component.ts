@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-update-activity',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './update-activity.component.html',
   styleUrl: './update-activity.component.css'
 })
