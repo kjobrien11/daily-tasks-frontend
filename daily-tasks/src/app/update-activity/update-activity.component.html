@@ -1,31 +1,29 @@
 <form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
     <h1>Update Activity</h1>
-    <div class = "form-item">
+    <div class="form-item">
         <label for="date">Date:</label>
         <input type="date" id="date" formControlName="date">
     </div>
 
 
-    <div class = "form-item">
+    <div class="form-item">
         <label for="activity">Activity:</label>
-        <select id="activity" formControlName="activity">
-            <option value="1">Read 1 Page</option>
-            <option value="2">Exercise 2 Minutes</option>
-            <option value="3">Career Work 2 Minutes</option>
-            <option value="4">Reflect 5 Minutes</option>
-            <option value="5">Connect 2 Minutes</option>
+        <select id="activity" formControlName="activityId">
+            <option *ngFor="let activity of activities" [value]="activity.id">
+                {{ activity.name }}
+            </option>
         </select>
     </div>
 
-    <div class = "form-item">
-        <fieldset class = "radio-buttons">
+    <div class="form-item">
+        <fieldset class="radio-buttons">
             <legend>Completion Status</legend>
             <label>
-                <input type="radio" value="true" formControlName="completionStatus">
+                <input type="radio" [value]="true" formControlName="complete">
                 Completed
             </label>
             <label>
-                <input type="radio" value="false" formControlName="completionStatus">
+                <input type="radio" [value]="false" formControlName="complete">
                 Uncompleted
             </label>
         </fieldset>
@@ -33,5 +31,5 @@
 
 
 
-    <button type="submit" [disabled]="activityForm.invalid" class = "form-item">Submit</button>
+    <button type="submit" [disabled]="activityForm.invalid" class="form-item">Submit</button>
 </form>

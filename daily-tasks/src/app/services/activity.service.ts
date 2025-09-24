@@ -6,6 +6,7 @@ import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
 import { Progress } from '../interfaces/Progress';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { Breakdown } from '../interfaces/Breakdown';
+import { UpdateActivity } from '../interfaces/UpdateActivity';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,10 @@ export class ActivityService {
 
   getStreak(): Observable<number>{
     return this.http.get<number>(`${this.apiUrl}/streak`);
+  }
+
+    updateActivity(activity: UpdateActivity) : Observable<DailyActivity>{
+      return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
   }
 
 }
