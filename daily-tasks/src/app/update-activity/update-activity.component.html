@@ -1,22 +1,37 @@
-<div>
+<form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
     <h1>Update Activity</h1>
-    <form action="">
+    <div class = "form-item">
         <label for="date">Date:</label>
-        <input type="date" name="date">
+        <input type="date" id="date" formControlName="date">
+    </div>
+
+
+    <div class = "form-item">
         <label for="activity">Activity:</label>
-        <select name="activity">
-            <option value="1">Read 1 Page </option>
+        <select id="activity" formControlName="activity">
+            <option value="1">Read 1 Page</option>
             <option value="2">Exercise 2 Minutes</option>
             <option value="3">Career Work 2 Minutes</option>
             <option value="4">Reflect 5 Minutes</option>
             <option value="5">Connect 2 Minutes</option>
         </select>
-        <fieldset id="group1">
-            <input type="radio" value="true" id="completed" name = "copmletionStatus">
-            <label for="completed">Completed</label>
-            <input type="radio" value="false" id="uncompleted" name = "copmletionStatus">
-            <label for="uncompleted">Uncompleted</label>
+    </div>
+
+    <div class = "form-item">
+        <fieldset class = "radio-buttons">
+            <legend>Completion Status</legend>
+            <label>
+                <input type="radio" value="true" formControlName="completionStatus">
+                Completed
+            </label>
+            <label>
+                <input type="radio" value="false" formControlName="completionStatus">
+                Uncompleted
+            </label>
         </fieldset>
-        <input type="submit">
-    </form>
-</div>
+    </div>
+
+
+
+    <button type="submit" [disabled]="activityForm.invalid" class = "form-item">Submit</button>
+</form>
