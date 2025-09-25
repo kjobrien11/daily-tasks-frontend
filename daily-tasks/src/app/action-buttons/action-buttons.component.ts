@@ -40,7 +40,7 @@ export class ActionButtonComponent implements OnInit {
     openUpdateActivityDialog() {
     this.popUp.open(UpdateActivityComponent, {
       width: '40vw',
-      height: '80vh',
+      height: '60vh',
       maxWidth: '100vw',
       data: { message: 'Hello from the popup!' }
     });
