@@ -40,11 +40,12 @@ export class UpdateActivityComponent {
       this.activityService.updateActivity(dto).subscribe({
         next: (response) => {
           console.log('Activity updated:', response);
+          this.activityService.notifyProgressUpdated();
         },
         error: (err) => {
           console.error('Error updating activity:', err);
         }
-      });
+      });      
     }
   }
 
