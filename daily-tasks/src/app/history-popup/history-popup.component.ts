@@ -15,10 +15,11 @@ import { Breakdown } from '../interfaces/Breakdown';
   templateUrl: './history-popup.component.html',
   styleUrl: './history-popup.component.css'
 })
-export class HistoryPopupComponent implements OnInit{
+export class HistoryPopupComponent implements OnInit {
 
-  rollingData! : WeeklyHistory[];
+  rollingData!: WeeklyHistory[];
   rollingDataBreakdown!: Breakdown[];
+  averageCompletionPercentage: number = 0;
 
   constructor(private activityService: ActivityService) { }
 
@@ -26,8 +27,20 @@ export class HistoryPopupComponent implements OnInit{
     this.loadRollingData();
   }
 
-  loadRollingData(){
+  loadRollingData() {
     this.activityService.getWeekHistory().subscribe(data => this.rollingData = data);
-    this.activityService.getWeekBreakdown().subscribe(data => this.rollingDataBreakdown = data);
+    this.activityService.getWeekBreakdown().subscribe(data => {
+      this.rollingDataBreakdown = data;
+      this.calculateAveragePercentage();
+    });
+  }
+
+  calculateAveragePercentage() {
+    let total = 0;
+    for (const day of this.rollingDataBreakdown) {
+      total += day.percentage;
+    }
+
+    this.averageCompletionPercentage = total / this.rollingDataBreakdown.length;
   }
 }

@@ -1,0 +1,35 @@
+<form [formGroup]="activityForm" (ngSubmit)="onSubmit()">
+    <h1>Update Activity</h1>
+    <div class="form-item">
+        <label for="date">Date:</label>
+        <input type="date" id="date" formControlName="date">
+    </div>
+
+
+    <div class="form-item">
+        <label for="activity">Activity:</label>
+        <select id="activity" formControlName="activityId">
+            <option *ngFor="let activity of activities" [value]="activity.id">
+                {{ activity.name }}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-item">
+        <fieldset class="radio-buttons">
+            <legend>Completion Status</legend>
+            <label>
+                <input type="radio" [value]="true" formControlName="complete">
+                Completed
+            </label>
+            <label>
+                <input type="radio" [value]="false" formControlName="complete">
+                Uncompleted
+            </label>
+        </fieldset>
+    </div>
+
+
+
+    <button type="submit" [disabled]="activityForm.invalid">Submit</button>
+</form>

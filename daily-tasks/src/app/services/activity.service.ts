@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { DailyActivity } from '../interfaces/DailyActivity';
 import { CompleteActivityRequest } from '../interfaces/CompleteActivityRequest';
 import { Progress } from '../interfaces/Progress';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { Breakdown } from '../interfaces/Breakdown';
+import { UpdateActivity } from '../interfaces/UpdateActivity';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,14 @@ import { Breakdown } from '../interfaces/Breakdown';
 export class ActivityService {
 
   private apiUrl = 'http://localhost:8080/activities';
+  private progressUpdatedSource = new Subject<void>();
+  progressUpdated$ = this.progressUpdatedSource.asObservable();
 
   constructor(private http: HttpClient) { }
+
+  notifyProgressUpdated() {
+    this.progressUpdatedSource.next();
+  }
 
   getTodaysActivities(): Observable<DailyActivity[]> {
    return this.http.get<DailyActivity[]>(`${this.apiUrl}/today`);
@@ -42,6 +49,10 @@ export class ActivityService {
 
   getStreak(): Observable<number>{
     return this.http.get<number>(`${this.apiUrl}/streak`);
+  }
+
+    updateActivity(activity: UpdateActivity) : Observable<DailyActivity>{
+      return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
   }
 
 }

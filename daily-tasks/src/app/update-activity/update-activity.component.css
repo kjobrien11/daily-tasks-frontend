@@ -1,0 +1,38 @@
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.radio-buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    height: 3rem;
+    border: solid 1px grey;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.form-item{
+    width: 50%;
+}
+
+input[type="date"], select {
+    width: 10rem;
+}
+
+label[for], legend{
+    padding-right: 1rem;
+    font-weight: 500;
+}
+
+label[for="date"]{
+    padding-right: 2.2rem;
+}
