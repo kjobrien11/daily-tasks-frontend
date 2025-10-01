@@ -21,7 +21,7 @@ export class HistoryPopupComponent implements OnInit {
   rollingData!: WeeklyHistory[];
   rollingDataBreakdown!: Breakdown[];
   averageCompletionPercentage: number = 0;
-  sevenDayMode: boolean = false;
+  sevenDayMode: boolean = true;
 
   constructor(private activityService: ActivityService) { }
 
@@ -44,5 +44,9 @@ export class HistoryPopupComponent implements OnInit {
     }
 
     this.averageCompletionPercentage = total / this.rollingDataBreakdown.length;
+  }
+
+  updateSevenDayMode(){
+    this.sevenDayMode = !this.sevenDayMode;
   }
 }
