@@ -31,6 +31,10 @@ export class ActivityService {
    return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-seven-days`);
   }
 
+  get28DayHistory(): Observable<WeeklyHistory[]> {
+   return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-28-days`);
+  }
+
   getWeekBreakdown(): Observable<Breakdown[]> {
    return this.http.get<Breakdown[]>(`${this.apiUrl}/last-seven-days-breakdown`);
   }

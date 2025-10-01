@@ -1,22 +1,19 @@
 <div class="center">
     <div class="header">
         <h1> {{ sevenDayMode ? 'Last 7 Day Stats' : 'Last 28 Days Stats' }} - {{averageCompletionPercentage}}%</h1>
-        <div class = "extended">
-            <input type="checkbox"
-            [checked]="sevenDayMode"
-            (change)="updateSevenDayMode()">
+        <div class="extended">
+            <input type="checkbox" [checked]="sevenDayMode" (change)="updateSevenDayMode()">
             <h3>Extended Display</h3>
         </div>
-
-
     </div>
-    
+
     <div class="history-container" *ngIf="sevenDayMode">
         <app-day-status *ngFor="let day of rollingData" [data]="day">
         </app-day-status>
     </div>
 
     <div class="history-container" *ngIf="!sevenDayMode">
+        <h3 *ngFor="let day of rollingData | slice:0:7" >{{day.dayOfWeek.substring(0,1)}}{{day.dayOfWeek.substring(1).toLowerCase()}}</h3>
         <app-compact-day-status *ngFor="let day of rollingData" [data]="day"></app-compact-day-status>
     </div>
 
