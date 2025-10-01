@@ -1,11 +1,15 @@
 <div class="center">
     <h1>Last 7 Day Stats - {{averageCompletionPercentage}}%</h1>
-    <div class="history-container">
-        <app-day-status *ngFor="let day of rollingData" [data]="day">
+    <div class="history-container" *ngIf="sevenDayMode">
+        <app-day-status *ngFor="let day of rollingData" [data]="day" >
         </app-day-status>
     </div>
 
-    <div class="container">
+    <div class="history-container" *ngIf="!sevenDayMode">
+        <app-compact-day-status *ngFor="let day of rollingData" [data]="day"></app-compact-day-status>
+    </div>
+
+    <div class="container" *ngIf="sevenDayMode">
         <table >
             <thead>
                 <tr>
@@ -23,3 +27,4 @@
     </div>
 
 </div>
+
