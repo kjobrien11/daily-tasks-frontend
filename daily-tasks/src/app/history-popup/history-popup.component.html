@@ -3,7 +3,7 @@
         <h1> {{ sevenDayMode ? 'Last 7 Day Stats' : 'Last 28 Days Stats' }}  {{ sevenDayMode ? '- ' + averageCompletionPercentage +'%' : ''}}</h1>
         <div class="extended">
             <input type="checkbox" [checked]="sevenDayMode" (change)="updateSevenDayMode()">
-            <h3>Extended Display</h3>
+            <h3>Seven Day View</h3>
         </div>
     </div>
 
