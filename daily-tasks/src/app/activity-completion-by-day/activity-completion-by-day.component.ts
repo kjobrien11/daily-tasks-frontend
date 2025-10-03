@@ -21,7 +21,7 @@ export class ActivityCompletionByDayComponent implements OnInit {
 
   getBackgroundColor(percentage: number): string {
     if (percentage === 100) {
-      return '#1ab45aff';
+      return '#35c554ff';
     } else if (percentage >= 80) {
       return '#92cf47ff';
     } else if (percentage >= 60) {
