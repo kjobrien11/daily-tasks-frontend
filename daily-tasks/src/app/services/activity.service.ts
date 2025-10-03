@@ -60,8 +60,8 @@ export class ActivityService {
     return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
   }
 
-  getAverageCompletionByDay(): Observable<AverageCompletionByDay>{
-    return this.http.get<AverageCompletionByDay>(`${this.apiUrl}/average-completion-by-day`);
+  getAverageCompletionByDay(): Observable<AverageCompletionByDay[]>{
+    return this.http.get<AverageCompletionByDay[]>(`${this.apiUrl}/average-completion-by-day`);
   }
 
 }

@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.row {
+    border: solid 1px grey;
+    padding: 1rem;
+    width: 7.5vw;
+
+}
+
+.row-continer{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border: solid 1px grey;
+    gap: 1rem;
+    padding: 1rem;
+    
+}
