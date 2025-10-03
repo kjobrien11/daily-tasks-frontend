@@ -1,11 +1,12 @@
 <div class="container">
-    <h2>Completion By Day of Week</h2>
-    <div class="row-continer">
-        <div *ngFor="let day of averageCompletionDataByDay" class="row">
-            <h3>{{day.dayOfWeek}}</h3>
-            <h2>{{day.percentage}}%</h2>
+    <h1>Analytics</h1>
+    <div>
+        <h2>Completion By Day of Week</h2>
+        <div class="row-continer">
+            <div *ngFor="let day of averageCompletionDataByDay" class="row" [style.background-color]="getBackgroundColor(day.percentage)">
+                <h3>{{day.dayOfWeek}}</h3>
+                <h1>{{day.percentage}}%</h1>
+            </div>
         </div>
     </div>
-
-    <h1>teset</h1>
 </div>
