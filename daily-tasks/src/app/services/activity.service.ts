@@ -7,6 +7,7 @@ import { Progress } from '../interfaces/Progress';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { Breakdown } from '../interfaces/Breakdown';
 import { UpdateActivity } from '../interfaces/UpdateActivity';
+import { AverageCompletionByDay } from '../interfaces/AverageCompletionByDay';
 
 @Injectable({
   providedIn: 'root'
@@ -24,39 +25,43 @@ export class ActivityService {
   }
 
   getTodaysActivities(): Observable<DailyActivity[]> {
-   return this.http.get<DailyActivity[]>(`${this.apiUrl}/today`);
+    return this.http.get<DailyActivity[]>(`${this.apiUrl}/today`);
   }
 
   getWeekHistory(): Observable<WeeklyHistory[]> {
-   return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-seven-days`);
+    return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-seven-days`);
   }
 
   get28DayHistory(): Observable<WeeklyHistory[]> {
-   return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-28-days`);
+    return this.http.get<WeeklyHistory[]>(`${this.apiUrl}/last-28-days`);
   }
 
   getWeekBreakdown(): Observable<Breakdown[]> {
-   return this.http.get<Breakdown[]>(`${this.apiUrl}/last-seven-days-breakdown`);
+    return this.http.get<Breakdown[]>(`${this.apiUrl}/last-seven-days-breakdown`);
   }
 
-  markActitivityComplete(activity: CompleteActivityRequest) : Observable<DailyActivity>{
+  markActitivityComplete(activity: CompleteActivityRequest): Observable<DailyActivity> {
     return this.http.post<DailyActivity>(`${this.apiUrl}/today/complete`, activity);
   }
 
-  markActitivityUnComplete(activity: CompleteActivityRequest): Observable<DailyActivity>{
+  markActitivityUnComplete(activity: CompleteActivityRequest): Observable<DailyActivity> {
     return this.http.post<DailyActivity>(`${this.apiUrl}/today/uncomplete`, activity);
   }
 
-  getTodaysProgress(): Observable<Progress>{
+  getTodaysProgress(): Observable<Progress> {
     return this.http.get<Progress>(`${this.apiUrl}/today/progress`);
   }
 
-  getStreak(): Observable<number>{
+  getStreak(): Observable<number> {
     return this.http.get<number>(`${this.apiUrl}/streak`);
   }
 
-    updateActivity(activity: UpdateActivity) : Observable<DailyActivity>{
-      return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
+  updateActivity(activity: UpdateActivity): Observable<DailyActivity> {
+    return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
+  }
+
+  getAverageCompletionByDay(): Observable<AverageCompletionByDay>{
+    return this.http.get<AverageCompletionByDay>(`${this.apiUrl}/average-completion-by-day`);
   }
 
 }
