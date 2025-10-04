@@ -1,0 +1,23 @@
+.day-status-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px grey;
+    border-radius: 1rem;
+    background-color: #f5f4f4;
+    height: 15vh;
+    width:  15vh;
+    gap: 0rem;
+}
+
+h1, h3, h4{
+    margin: 0.25rem;
+}
+h4 {
+    font-weight: 300;
+}
+
+h3 {
+    font-weight: 500;
+}

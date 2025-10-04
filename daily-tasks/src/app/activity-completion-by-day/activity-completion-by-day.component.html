@@ -1,0 +1,58 @@
+<div class="container">
+    <h1>Activity Completion Analytics</h1>
+    <div class="level-container">
+        <div class="level-item center-text">
+            <h2>Completion By Day of Week</h2>
+            <div class="row-continer">
+                <div *ngFor="let day of averageCompletionDataByDay" class="row"
+                    [style.background-color]="getBackgroundColor(day.percentage)">
+                    <h3>{{day.dayOfWeek}}</h3>
+                    <h1>{{day.percentage}}%</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="level-container">
+        <div class="level-item center-text">
+            <h2>Ranked Completion Percentage</h2>
+            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
+                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
+                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            </div>
+        </div>
+        <div class="level-item center-text">
+            <h2>Earliest Average Completion Time</h2>
+            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
+                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
+                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            </div>
+        </div>
+
+    </div>
+    <div class="level-container">
+        <div class="level-item center-text">
+            <h2>Top 3 Completed</h2>
+            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
+                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
+                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            </div>
+        </div>
+        <div class="level-item center-text">
+            <h2>Bottom 3 Completed</h2>
+            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
+                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
+                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            </div>
+        </div>
+        <div class="level-item center-text">
+            <h2>Longest Streak</h2>
+            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
+                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
+                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            </div>
+        </div>
+
+    </div>
+
+</div>

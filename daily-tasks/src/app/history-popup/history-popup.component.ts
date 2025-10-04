@@ -4,14 +4,15 @@ import { DailyActivity } from '../interfaces/DailyActivity';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { MatDialog } from '@angular/material/dialog';
 import { DayStatusComponent } from '../day-status/day-status.component';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { ActivityBreakdownComponent } from '../activity-breakdown/activity-breakdown.component';
-import { ActivityBreakdown } from '../interfaces/ActivityBreakdown';
+import { CompactDayStatusComponent } from '../compact-day-status/compact-day-status.component';
 import { Breakdown } from '../interfaces/Breakdown';
+
 
 @Component({
   selector: 'app-history-popup',
-  imports: [DayStatusComponent, NgFor, ActivityBreakdownComponent],
+  imports: [DayStatusComponent, NgFor, NgIf, ActivityBreakdownComponent, CompactDayStatusComponent, CommonModule],
   templateUrl: './history-popup.component.html',
   styleUrl: './history-popup.component.css'
 })
@@ -20,6 +21,7 @@ export class HistoryPopupComponent implements OnInit {
   rollingData!: WeeklyHistory[];
   rollingDataBreakdown!: Breakdown[];
   averageCompletionPercentage: number = 0;
+  sevenDayMode: boolean = true;
 
   constructor(private activityService: ActivityService) { }
 
@@ -42,5 +44,14 @@ export class HistoryPopupComponent implements OnInit {
     }
 
     this.averageCompletionPercentage = total / this.rollingDataBreakdown.length;
+  }
+
+  updateSevenDayMode() {
+    this.sevenDayMode = !this.sevenDayMode;
+    if (this.sevenDayMode) {
+      this.activityService.getWeekHistory().subscribe(data => this.rollingData = data);
+    } else {
+      this.activityService.get28DayHistory().subscribe(data => this.rollingData = data);
+    }
   }
 }

@@ -1,14 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { DailyActivity } from '../interfaces/DailyActivity';
 import { WeeklyHistory } from '../interfaces/WeekHistory';
 
 @Component({
-  selector: 'app-day-status',
+  selector: 'app-compact-day-status',
   imports: [],
-  templateUrl: './day-status.component.html',
-  styleUrl: './day-status.component.css'
+  templateUrl: './compact-day-status.component.html',
+  styleUrl: './compact-day-status.component.css'
 })
-export class DayStatusComponent {
+export class CompactDayStatusComponent {
 
   @Input() data!: WeeklyHistory;
 

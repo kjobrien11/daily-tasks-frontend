@@ -3,6 +3,7 @@ import { ActivityService } from '../services/activity.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HistoryPopupComponent } from '../history-popup/history-popup.component';
 import { UpdateActivityComponent } from '../update-activity/update-activity.component';
+import { AnalyticsComponent } from '../analytics/analytics.component';
 
 @Component({
   selector: 'app-action-buttons',
@@ -24,25 +25,27 @@ export class ActionButtonComponent implements OnInit {
     this.activityService.getStreak().subscribe(data => this.streak = data);
   }
 
-  showHistory():void{
-    console.log("Click")
-  }
-
   openHistoryDialog() {
     this.popUp.open(HistoryPopupComponent, {
       width: '95vw',
       height: '90vh',
       maxWidth: '100vw',
-      data: { message: 'Hello from the popup!' }
     });
   }
 
-    openUpdateActivityDialog() {
+  openUpdateActivityDialog() {
     this.popUp.open(UpdateActivityComponent, {
       width: '40vw',
       height: '60vh',
       maxWidth: '100vw',
-      data: { message: 'Hello from the popup!' }
+    });
+  }
+
+    openAnalyticsDialog() {
+    this.popUp.open(AnalyticsComponent, {
+      width: '95vw',
+      height: '90vh',
+      maxWidth: '100vw',
     });
   }
 
