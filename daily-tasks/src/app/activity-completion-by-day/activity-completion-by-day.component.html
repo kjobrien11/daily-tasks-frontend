@@ -33,23 +33,30 @@
     <div class="level-container">
         <div class="level-item center-text">
             <h2>Top 3 Completed</h2>
-            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
-                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
-                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            <div class="three-styling">
+                <ol>
+                    <li>{{top3Activities[0]}}</li>
+                    <li>{{top3Activities[1]}}</li>
+                    <li>{{top3Activities[2]}}</li>
+
+                </ol>
             </div>
         </div>
         <div class="level-item center-text">
             <h2>Bottom 3 Completed</h2>
-            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
-                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
-                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            <div class="three-styling">
+                <ol>
+                    <li>{{bottom3Activities[0]}}</li>
+                    <li>{{bottom3Activities[1]}}</li>
+                    <li>{{bottom3Activities[2]}}</li>
+
+                </ol>
             </div>
         </div>
         <div class="level-item center-text">
             <h2>Longest Streak</h2>
-            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
-                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
-                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+            <div class="three-styling">
+                <h1>{{longestStreak}}🔥</h1>
             </div>
         </div>
 

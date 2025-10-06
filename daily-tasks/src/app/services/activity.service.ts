@@ -56,6 +56,10 @@ export class ActivityService {
     return this.http.get<number>(`${this.apiUrl}/streak`);
   }
 
+  getLongestStreak(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/longest-streak`);
+  }
+
   updateActivity(activity: UpdateActivity): Observable<DailyActivity> {
     return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
   }
@@ -63,5 +67,14 @@ export class ActivityService {
   getAverageCompletionByDay(): Observable<AverageCompletionByDay[]>{
     return this.http.get<AverageCompletionByDay[]>(`${this.apiUrl}/average-completion-by-day`);
   }
+
+  getTop3Activites(): Observable<String[]>{
+    return this.http.get<String[]>(`${this.apiUrl}/top-3-completed`);
+  }
+
+  getBottom3Activites(): Observable<String[]>{
+    return this.http.get<String[]>(`${this.apiUrl}/bottom-3-completed`);
+  }
+
 
 }

@@ -14,9 +14,16 @@ export class ActivityCompletionByDayComponent implements OnInit {
   constructor(private activityService: ActivityService) { }
 
   averageCompletionDataByDay!: AverageCompletionByDay[];
+  top3Activities: String[] = [];
+  bottom3Activities: String[] = [];
+  longestStreak: number = -1;
+
 
   ngOnInit(): void {
     this.activityService.getAverageCompletionByDay().subscribe(data => this.averageCompletionDataByDay = data);
+    this.activityService.getTop3Activites().subscribe(data => this.top3Activities = data);
+    this.activityService.getBottom3Activites().subscribe(data => this.bottom3Activities = data);
+    this.activityService.getLongestStreak().subscribe(data => this.longestStreak = data);
   }
 
   getBackgroundColor(percentage: number): string {
