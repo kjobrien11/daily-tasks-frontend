@@ -23,10 +23,17 @@ export class SearchComponent {
     date: new FormControl('', Validators.required)
   });
 
+  setDate(newDate:string){
+    this.searchForm.patchValue({
+      date: newDate
+    })
+
+    this.search();
+  }
+
   search() {
     this.activityService.getActivitesByDate(this.searchForm.value.date!).subscribe(data => {
       this.activityStatus = data;
-
 
       if (this.activityStatus.length == 0) {
         this.searchComplete = false;

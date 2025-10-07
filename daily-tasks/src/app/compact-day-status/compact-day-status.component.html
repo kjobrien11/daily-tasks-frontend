@@ -1,4 +1,4 @@
-<div class = "day-status-container" [style.background-color]="getBackgroundColor(data.percentage)">
+<div class = "day-status-container" [style.background-color]="getBackgroundColor(data.percentage)" (click)="openSearchDialog()">
     <h1>{{data.percentage}}%</h1>
     <h4>{{ data.date.substring(5,7) }}/{{ data.date.substring(8) }}/{{ data.date.substring(0,4) }}</h4>
 </div>
