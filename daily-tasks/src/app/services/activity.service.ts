@@ -9,6 +9,7 @@ import { Breakdown } from '../interfaces/Breakdown';
 import { UpdateActivity } from '../interfaces/UpdateActivity';
 import { AverageCompletionByDay } from '../interfaces/AverageCompletionByDay';
 import { TotalCompletionsByActivity } from '../interfaces/TotalCompletionsByActivity';
+import { ActivityStatus } from '../interfaces/ActivityStatus';
 
 @Injectable({
   providedIn: 'root'
@@ -79,6 +80,10 @@ export class ActivityService {
 
   getTotalCompletionsByActivity(): Observable<TotalCompletionsByActivity[]>{
     return this.http.get<TotalCompletionsByActivity[]>(`${this.apiUrl}/total-activity-completions`);
+  }
+
+  getActivitesByDate(date: string): Observable<ActivityStatus[]>{
+     return this.http.post<ActivityStatus[]>(`${this.apiUrl}/stats-for-day`, date);
   }
 
 }

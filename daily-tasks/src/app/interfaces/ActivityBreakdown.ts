@@ -1,5 +1,5 @@
 export interface ActivityBreakdown {
-  activityName: string;
-  percentage: number;
-  completion: boolean[];
+    activityName: string;
+    percentage: number;
+    completion: boolean[];
 }

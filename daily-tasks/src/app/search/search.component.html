@@ -1,14 +1,20 @@
 <form [formGroup]="searchForm" (ngSubmit)="search()">
     <h1>Search Activity Status by Day</h1>
     <div class="form-item">
-        <div class = "date">
+        <div class="date">
             <label for="date"><b>Date:</b></label>
             <input type="date" id="date" formControlName="date">
         </div>
-
-
         <button type="submit" [disabled]="searchForm.invalid">Submit</button>
-
-
     </div>
+    <div *ngIf="searchComplete">
+        <h3>Activities for {{ searchForm.value.date!.substring(5,7) }}/{{ searchForm.value.date!.substring(8,10) }}/{{
+            searchForm.value.date!.substring(0,4)}}</h3>
+        <ol class="activities-container">
+            <li *ngFor="let activity of activityStatus" class="activities">
+                {{ activity.activityTitle }} {{ activity.complete ? "✅" : "❌" }}
+            </li>
+        </ol>
+    </div>
+
 </form>

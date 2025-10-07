@@ -52,8 +52,8 @@ export class ActionButtonComponent implements OnInit {
 
   openSearchDialog() {
     this.popUp.open(SearchComponent, {
-      width: '40vw',
-      height: '60vh',
+      width: '35vw',
+      height: '70vh',
       maxWidth: '100vw',
     });
   }
