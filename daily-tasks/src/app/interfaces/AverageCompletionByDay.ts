@@ -1,4 +1,4 @@
 export interface AverageCompletionByDay {
-  dayOfWeek: string;
-  percentage: number;
+    dayOfWeek: string;
+    percentage: number;
 }

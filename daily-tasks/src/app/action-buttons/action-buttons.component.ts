@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HistoryPopupComponent } from '../history-popup/history-popup.component';
 import { UpdateActivityComponent } from '../update-activity/update-activity.component';
 import { AnalyticsComponent } from '../analytics/analytics.component';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
   selector: 'app-action-buttons',
@@ -21,7 +22,7 @@ export class ActionButtonComponent implements OnInit {
     this.loadStreak();
   }
 
-  loadStreak(): void{
+  loadStreak(): void {
     this.activityService.getStreak().subscribe(data => this.streak = data);
   }
 
@@ -41,10 +42,18 @@ export class ActionButtonComponent implements OnInit {
     });
   }
 
-    openAnalyticsDialog() {
+  openAnalyticsDialog() {
     this.popUp.open(AnalyticsComponent, {
       width: '95vw',
       height: '90vh',
+      maxWidth: '100vw',
+    });
+  }
+
+  openSearchDialog() {
+    this.popUp.open(SearchComponent, {
+      width: '35vw',
+      height: '70vh',
       maxWidth: '100vw',
     });
   }
