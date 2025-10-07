@@ -25,8 +25,8 @@ export class UpdateActivityComponent {
     { id: 1, name: 'Read 1 Page' },
     { id: 2, name: 'Exercise 2 Minutes' },
     { id: 3, name: 'Career Work 2 Minutes' },
-    { id: 4, name: 'Reflect 5 Minutes' },
-    { id: 5, name: 'Connect 2 Minutes' }
+    { id: 4, name: 'Reflect 2 Minutes' },
+    { id: 5, name: 'Gratitude 3 Things' }
   ];
 
   onSubmit() {
