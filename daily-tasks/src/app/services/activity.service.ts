@@ -8,6 +8,7 @@ import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { Breakdown } from '../interfaces/Breakdown';
 import { UpdateActivity } from '../interfaces/UpdateActivity';
 import { AverageCompletionByDay } from '../interfaces/AverageCompletionByDay';
+import { TotalCompletionsByActivity } from '../interfaces/TotalCompletionsByActivity';
 
 @Injectable({
   providedIn: 'root'
@@ -56,12 +57,28 @@ export class ActivityService {
     return this.http.get<number>(`${this.apiUrl}/streak`);
   }
 
+  getLongestStreak(): Observable<number> {
+    return this.http.get<number>(`${this.apiUrl}/longest-streak`);
+  }
+
   updateActivity(activity: UpdateActivity): Observable<DailyActivity> {
     return this.http.post<DailyActivity>(`${this.apiUrl}/update`, activity);
   }
 
   getAverageCompletionByDay(): Observable<AverageCompletionByDay[]>{
     return this.http.get<AverageCompletionByDay[]>(`${this.apiUrl}/average-completion-by-day`);
+  }
+
+  getTop3Activites(): Observable<String[]>{
+    return this.http.get<String[]>(`${this.apiUrl}/top-3-completed`);
+  }
+
+  getBottom3Activites(): Observable<String[]>{
+    return this.http.get<String[]>(`${this.apiUrl}/bottom-3-completed`);
+  }
+
+  getTotalCompletionsByActivity(): Observable<TotalCompletionsByActivity[]>{
+    return this.http.get<TotalCompletionsByActivity[]>(`${this.apiUrl}/total-activity-completions`);
   }
 
 }
