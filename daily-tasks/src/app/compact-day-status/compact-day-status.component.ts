@@ -18,6 +18,7 @@ export class CompactDayStatusComponent {
       width: '35vw',
       height: '70vh',
       maxWidth: '100vw',
+      data: { date: this.data.date || null }
     });
   }
 

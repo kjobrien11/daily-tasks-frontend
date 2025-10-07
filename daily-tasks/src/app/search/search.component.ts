@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivityService } from '../services/activity.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { ActivityStatus } from '../interfaces/ActivityStatus';
 import { NgIf } from '@angular/common';
+import { Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search',
@@ -12,9 +14,9 @@ import { NgIf } from '@angular/common';
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit{
 
-  constructor(private activityService: ActivityService) { }
+  constructor(private activityService: ActivityService, @Inject(MAT_DIALOG_DATA) public data: { date: string | null }) { }
 
   activityStatus: ActivityStatus[] = [];
   searchComplete: boolean = false;
@@ -23,6 +25,12 @@ export class SearchComponent {
     date: new FormControl('', Validators.required)
   });
 
+
+  ngOnInit(): void {
+    if (this.data && this.data.date) {
+      this.setDate(this.data.date);
+    }
+  }
   setDate(newDate:string){
     this.searchForm.patchValue({
       date: newDate
