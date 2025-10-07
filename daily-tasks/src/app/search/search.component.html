@@ -1,0 +1,14 @@
+<form [formGroup]="searchForm" (ngSubmit)="search()">
+    <h1>Search Activity Status by Day</h1>
+    <div class="form-item">
+        <div class = "date">
+            <label for="date"><b>Date:</b></label>
+            <input type="date" id="date" formControlName="date">
+        </div>
+
+
+        <button type="submit" [disabled]="searchForm.invalid">Submit</button>
+
+
+    </div>
+</form>
