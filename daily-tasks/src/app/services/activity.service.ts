@@ -8,6 +8,7 @@ import { WeeklyHistory } from '../interfaces/WeekHistory';
 import { Breakdown } from '../interfaces/Breakdown';
 import { UpdateActivity } from '../interfaces/UpdateActivity';
 import { AverageCompletionByDay } from '../interfaces/AverageCompletionByDay';
+import { TotalCompletionsByActivity } from '../interfaces/TotalCompletionsByActivity';
 
 @Injectable({
   providedIn: 'root'
@@ -76,5 +77,8 @@ export class ActivityService {
     return this.http.get<String[]>(`${this.apiUrl}/bottom-3-completed`);
   }
 
+  getTotalCompletionsByActivity(): Observable<TotalCompletionsByActivity[]>{
+    return this.http.get<TotalCompletionsByActivity[]>(`${this.apiUrl}/total-activity-completions`);
+  }
 
 }

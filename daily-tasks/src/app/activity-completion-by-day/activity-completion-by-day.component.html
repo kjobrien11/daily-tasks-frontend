@@ -14,20 +14,25 @@
     </div>
 
     <div class="level-container">
-        <div class="level-item center-text">
-            <h2>Ranked Completion Percentage</h2>
-            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
-                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
-                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
+        <div class="level-item ">
+            <h2 class = "center-text">Ranked Completion Percentage</h2>
+            <div>
+                <div class="two-column-list">
+                    <ol>
+                        <li *ngFor="let item of totalCompletionsByActivity.slice(0, 3)">
+                            <b>{{ item.activityTitle }}</b> - {{ item.completions }} <em>({{ item.percentage }}%)</em>
+                        </li>
+                    </ol>
+
+                    <ol start="4">
+                        <li *ngFor="let item of totalCompletionsByActivity.slice(3, 5)">
+                            <b>{{ item.activityTitle }}</b> - {{ item.completions }} <em>({{ item.percentage }}%)</em>
+                        </li>
+                    </ol>
+                </div>
             </div>
         </div>
-        <div class="level-item center-text">
-            <h2>Earliest Average Completion Time</h2>
-            <div class="row" [style.background-color]="getBackgroundColor(averageCompletionDataByDay[0].percentage)">
-                <h3>{{averageCompletionDataByDay[0].dayOfWeek}}</h3>
-                <h1>{{averageCompletionDataByDay[0].percentage}}%</h1>
-            </div>
-        </div>
+
 
     </div>
     <div class="level-container">

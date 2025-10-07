@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../services/activity.service';
 import { AverageCompletionByDay } from '../interfaces/AverageCompletionByDay';
 import { NgFor } from '@angular/common';
+import { TotalCompletionsByActivity } from '../interfaces/TotalCompletionsByActivity';
 
 @Component({
   selector: 'app-activity-completion-by-day',
@@ -17,6 +18,7 @@ export class ActivityCompletionByDayComponent implements OnInit {
   top3Activities: String[] = [];
   bottom3Activities: String[] = [];
   longestStreak: number = -1;
+  totalCompletionsByActivity: TotalCompletionsByActivity[] = [];
 
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class ActivityCompletionByDayComponent implements OnInit {
     this.activityService.getTop3Activites().subscribe(data => this.top3Activities = data);
     this.activityService.getBottom3Activites().subscribe(data => this.bottom3Activities = data);
     this.activityService.getLongestStreak().subscribe(data => this.longestStreak = data);
+    this.activityService.getTotalCompletionsByActivity().subscribe(data => this.totalCompletionsByActivity = data);
   }
 
   getBackgroundColor(percentage: number): string {

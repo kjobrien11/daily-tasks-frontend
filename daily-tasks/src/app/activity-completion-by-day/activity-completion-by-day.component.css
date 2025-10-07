@@ -79,6 +79,22 @@ li {
     text-align: center;
 }
 
-.three-styling  h1 {
+.three-styling h1 {
     font-size: 3rem;
+}
+
+.two-column-list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.two-column-list ol {
+    list-style-position: inside;
+    padding: 0;
+    margin: 0;
+}
+li {
+    font-weight: 400;
 }
